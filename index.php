@@ -1,6 +1,21 @@
 <?php
+// Include database connection
 include('res/dbcon.php');
+
+// Fetch categories from the API
+$api_url = "http://localhost/sitescape/get_cat.php";
+$categories_json = file_get_contents($api_url);
+$categories_data = json_decode($categories_json);
+
+// Check if categories were fetched successfully
+if ($categories_data === null) {
+    exit("Error: Unable to fetch categories from the API.");
+}
+
+// Extract categories array from the data
+$categories = $categories_data->categories;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
