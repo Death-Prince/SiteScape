@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sitescape</title>
+</head>
+
+<body>
+    <div class="search-bar sticky">
+        <div class="search-bar-center">
+            <input type="text" id="myInput" onkeyup="myFunction()"
+                placeholder="Search for names.." title="Type in a name"
+                autocomplete="off">
+            <select name="categories" id="selectcategories"
+                class="input-style" onchange="filterSites()">
+                <option value="All Site">All Site</option>
+                <!-- Categories will be dynamically added here -->
+            </select>
+        </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="content" id="myUL">
+        <!-- Site tabs will be dynamically added here -->
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+
+        // Populate site tabs
+        for (var i in siteData) {
+            var row = '<div class="tab" data-cat="' + siteData[i].category_name + '">'
+                + '<div class="site" href="' + siteData[i].site_link + '">'
+                + '<img src="./images/' + siteData[i].site_image + '" alt="Site Icon" loading="lazy">'
+                + '<p class="skin">' + siteData[i].site_name + '</p>'
+                + '</div>'
+                + '</div>';
+
+            var content = document.getElementById('myUL');
+            content.insertAdjacentHTML('beforeend', row);
+        }
+
+        // Populate category dropdown
+        var categories = [];
+        for (var i in siteData) {
+            if (!categories.includes(siteData[i].category_name)) {
+                categories.push(siteData[i].category_name);
+                var row = '<option value="' + siteData[i].category_name + '">' + siteData[i].category_name + '</option>';
+                var content = document.getElementById('selectcategories');
+                content.insertAdjacentHTML('beforeend', row);
+            }
+        }
+
+        function myFunction() {
+            var input, filter, divs, div, p, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            divs = document.getElementsByClassName("tab");
+            for (i = 0; i < divs.length; i++) {
+                p = divs[i].getElementsByTagName("p")[0];
+                txtValue = p.textContent || p.innerText;
+                div = divs[i];
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    div.style.display = "";
+                } else {
+                    div.style.display = "none";
+                }
+            }
+        }
+
+        function filterSites() {
+            var select = document.getElementById("selectcategories");
+            var selectedCategoryId = select.value;
+            var tabs = document.getElementsByClassName("tab");
+
+            for (var i = 0; i < tabs.length; i++) {
+                var category = tabs[i].getAttribute("data-cat");
+                if (selectedCategoryId === "All Site" || category === selectedCategoryId) {
+                    tabs[i].style.display = "";
+                } else {
+                    tabs[i].style.display = "none";
+                }
+            }
+        }
+
+        // Add click event listener to each .site element
+        var siteElements = document.querySelectorAll('.site');
+        siteElements.forEach(function(site) {
+            site.addEventListener('click', function(event) {
+                // Prevent the default action of the click event
+                event.preventDefault();
+                // Get the href attribute of the clicked site
+                var href = this.getAttribute('href');
+                // If the href is not null or empty, open it in a new tab
+                if (href && href.trim() !== '') {
+                    window.open(href, '_blank');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
