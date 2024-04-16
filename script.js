@@ -40,7 +40,7 @@ var siteData = [
         'site_link': 'https://www.ilovepdf.com/',
         'site_image': 'ilovepdf.png',
         'site_name': 'ilovepdf',
-    },,
+    },
     {
         'category_name': 'UI',
         'site_link': 'https://uiverse.io/',
