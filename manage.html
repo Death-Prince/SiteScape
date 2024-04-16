@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet" />
+    <title>Sitescape</title>
+</head>
+
+<body>
+    <div class="search-bar sticky">
+        <div class="search-bar-center">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."
+                title="Type in a name" autocomplete="off" />
+            <select name="categories" id="selectcategories" class="input-style" onchange="filterSites()">
+                <option value="All Site">All Site</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Page content -->
+    <div class="content" id="myUL"></div>
+
+    <div class="files">
+        <button class="tooltip site-data-button" id="uploadbtn">
+            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35" height="35" viewBox="0,0,256,256"
+                style="fill: #fff">
+                <defs>
+                    <clippath id="clip-1">
+                        <path
+                            d="M0,256v-256h256v256zM210.1517,190.11733c-2.57156,-8.90104 -10.65452,-15.19141 -20.26281,-15.19141c-7.43111,0 -14.20711,3.92741 -18.00089,10.12c-5.55704,1.1603 -10.08415,5.15941 -11.99081,10.40681c-6.2643,2.27496 -10.74904,8.28504 -10.74904,15.32504c0,8.98578 7.31052,16.2963 16.2963,16.2963h35.85185c10.78163,0 19.55556,-8.77393 19.55556,-19.55556c0,-7.48 -4.23378,-14.13215 -10.70015,-17.40119z"
+                            id="overlayBgMask" fill="none"></path>
+                    </clippath>
+                </defs>
+                <g clip-path="url(#clip-1)" fill="none" fill-rule="nonzero" stroke="none" stroke-width="1"
+                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray
+                    stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <g transform="scale(5.33333,5.33333)" fill="#fff">
+                        <path
+                            d="M13,4c-2.74952,0 -5,2.25048 -5,5v31c0,2.74952 2.25048,5 5,5h22c2.74952,0 5,-2.25048 5,-5v-20c0.0051,-0.36064 -0.18438,-0.69608 -0.49587,-0.87789c-0.3115,-0.18181 -0.69676,-0.18181 -1.00825,0c-0.3115,0.18181 -0.50097,0.51725 -0.49587,0.87789v20c0,1.66848 -1.33152,3 -3,3h-22c-1.66848,0 -3,-1.33152 -3,-3v-31c0,-1.66848 1.33152,-3 3,-3h13.75781c0.09101,0 0.15313,0.0875 0.24219,0.09961v6.90039c0,2.19733 1.80267,4 4,4h8c0.40437,-0.00016 0.76885,-0.24381 0.92359,-0.6174c0.15474,-0.37359 0.06927,-0.8036 -0.21656,-1.08963l-10.12109,-10.12109c-0.74954,-0.75087 -1.76747,-1.17187 -2.82813,-1.17187zM29,7.41406l7.58594,7.58594h-5.58594c-1.11667,0 -2,-0.88333 -2,-2zM16,24c-0.36064,-0.0051 -0.69608,0.18438 -0.87789,0.49587c-0.18181,0.3115 -0.18181,0.69676 0,1.00825c0.18181,0.3115 0.51725,0.50097 0.87789,0.49587h16c0.36064,0.0051 0.69608,-0.18438 0.87789,-0.49587c0.18181,-0.3115 0.18181,-0.69676 0,-1.00825c-0.18181,-0.3115 -0.51725,-0.50097 -0.87789,-0.49587zM16,29c-0.36064,-0.0051 -0.69608,0.18438 -0.87789,0.49587c-0.18181,0.3115 -0.18181,0.69676 0,1.00825c0.18181,0.3115 0.51725,0.50097 0.87789,0.49587h16c0.36064,0.0051 0.69608,-0.18438 0.87789,-0.49587c0.18181,-0.3115 0.18181,-0.69676 0,-1.00825c-0.18181,-0.3115 -0.51725,-0.50097 -0.87789,-0.49587zM16,34c-0.36064,-0.0051 -0.69608,0.18438 -0.87789,0.49587c-0.18181,0.3115 -0.18181,0.69676 0,1.00825c0.18181,0.3115 0.51725,0.50097 0.87789,0.49587h10c0.36064,0.0051 0.69608,-0.18438 0.87789,-0.49587c0.18181,-0.3115 0.18181,-0.69676 0,-1.00825c-0.18181,-0.3115 -0.51725,-0.50097 -0.87789,-0.49587z">
+                        </path>
+                    </g>
+                </g>
+                <g fill="#fff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray stroke-dashoffset="0"
+                    font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                    style="mix-blend-mode: normal">
+                    <g transform="translate(155.66667,181.44444) scale(3.25926,3.25926)" id="overlay">
+                        <path
+                            d="M18,8c0,2.209 -1.791,4 -4,4h-11c-1.657,0 -3,-1.343 -3,-3c0,-1.657 1.343,-3 3,-3c0,-1.657 1.343,-3 3,-3c0.091,0 0.178,0.019 0.267,0.027c0.613,-1.758 2.267,-3.027 4.233,-3.027c2.359,0 4.271,1.821 4.463,4.13c1.741,0.433 3.037,1.995 3.037,3.87z">
+                        </path>
+                    </g>
+                </g>
+            </svg>
+            <span class="tooltiptext">Upload</span>
+        </button>
+    </div>
+
+    <div class="modal" id="uploadModal">
+        <div class="modal-content">
+            <span class="close"></span>
+            <form class="uploadsite" method="post" enctype="multipart/form-data">
+                <div class="card">
+                    <div class="card-image-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024"
+                            stroke-width="0" fill="currentColor" stroke="currentColor" class="image-icon" id="svg">
+                            <path
+                                d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zM338 304c35.3 0 64 28.7 64 64s-28.7 64-64 64-64-28.7-64-64 28.7-64 64-64zm513.9 437.1a8.11 8.11 0 0 1-5.2 1.9H177.2c-4.4 0-8-3.6-8-8 0-1.9.7-3.7 1.9-5.2l170.3-202c2.8-3.4 7.9-3.8 11.3-1 .3.3.7.6 1 1l99.4 118 158.1-187.5c2.8-3.4 7.9-3.8 11.3-1 .3.3.7.6 1 1l229.6 271.6c2.6 3.3 2.2 8.4-1.2 11.2z">
+                            </path>
+                        </svg>
+                        <img id="blah" src="#" alt="your image" />
+                    </div>
+                    <p class="card-title">
+                        <input accept="image/*" type="file" id="imgInp" name="icon" />
+                    </p>
+                    <p class="card-des">
+                        <input name="site_name" placeholder="Site Name" class="input-modal-style input-width"
+                            type="text" />
+                        <input name="site_link" placeholder="Link" class="input-modal-style input-width" type="text" />
+                        <input name="site_cat" placeholder="category" class="input-modal-style input-width"
+                            type="text" />
+                        <button name="uploaddata" class="submitbutton">Submit</button>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+    <script>
+        var svg = document.getElementById("svg");
+
+        imgInp.onchange = (evt) => {
+            const [file] = imgInp.files;
+            if (file) {
+                blah.src = URL.createObjectURL(file);
+                blah.onload = () => {
+                    blah.style.display = "block";
+                    blah.style.width = "100%";
+                    svg.style.display = "none";
+                };
+            }
+        };
+        // Populate site tabs
+        for (var i in siteData) {
+            var row =
+                '<div class="tab" data-cat="' +
+                siteData[i].category_name +
+                '">' +
+                '<div class="site" href="' +
+                siteData[i].site_link +
+                '">' +
+                '<img src="./images/' +
+                siteData[i].site_image +
+                '" alt="Site Icon" loading="lazy">' +
+                '<p class="skin">' +
+                siteData[i].site_name +
+                "</p>" +
+                "</div>" +
+                "</div>";
+
+            var content = document.getElementById("myUL");
+            content.insertAdjacentHTML("beforeend", row);
+        }
+
+        var categories = [];
+        for (var i in siteData) {
+            if (!categories.includes(siteData[i].category_name)) {
+                categories.push(siteData[i].category_name);
+                var row =
+                    '<option value="' +
+                    siteData[i].category_name +
+                    '">' +
+                    siteData[i].category_name +
+                    "</option>";
+                var content = document.getElementById("selectcategories");
+                content.insertAdjacentHTML("beforeend", row);
+            }
+        }
+
+        function myFunction() {
+            var input, filter, divs, div, p, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            divs = document.getElementsByClassName("tab");
+            for (i = 0; i < divs.length; i++) {
+                p = divs[i].getElementsByTagName("p")[0];
+                txtValue = p.textContent || p.innerText;
+                div = divs[i];
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    div.style.display = "";
+                } else {
+                    div.style.display = "none";
+                }
+            }
+        }
+
+        function filterSites() {
+            var select = document.getElementById("selectcategories");
+            var selectedCategoryId = select.value;
+            var tabs = document.getElementsByClassName("tab");
+
+            for (var i = 0; i < tabs.length; i++) {
+                var category = tabs[i].getAttribute("data-cat");
+                if (
+                    selectedCategoryId === "All Site" ||
+                    category === selectedCategoryId
+                ) {
+                    tabs[i].style.display = "";
+                } else {
+                    tabs[i].style.display = "none";
+                }
+            }
+        }
+
+        var uploadModal = document.getElementById("uploadModal");
+        var uploadbtn = document.getElementById("uploadbtn");
+        var uploadSpan = document.getElementsByClassName("close");
+
+        uploadbtn.onclick = function () {
+            uploadModal.style.display = "block";
+        };
+
+        uploadSpan.onclick = function () {
+            uploadModal.style.display = "none";
+        };
+
+        window.onclick = function (event) {
+            if (event.target == uploadModal) {
+                uploadModal.style.display = "none";
+            }
+        };
+
+        // Add click event listener to each .site element
+        var siteElements = document.querySelectorAll(".site");
+        siteElements.forEach(function (site) {
+            site.addEventListener("click", function (event) {
+                event.preventDefault();
+                var href = this.getAttribute("href");
+                var image = this.querySelector("img").getAttribute("src");
+                var category = this.parentElement.getAttribute("data-cat");
+                var siteName = this.querySelector(".skin").textContent;
+
+                document.querySelector('input[name="site_name"]').value = siteName;
+                document.querySelector('input[name="site_link"]').value = href;
+                document.querySelector('input[name="site_cat"]').value = category;
+                document.querySelector("#blah").src = image;
+                svg.style.display = "none";
+                blah.style.display = "block";
+                blah.style.width = "100%";
+
+                console.log(
+                    "update site: " +
+                    category +
+                    " and " +
+                    href +
+                    " -> " +
+                    image +
+                    " -> " +
+                    siteName
+                );
+                uploadModal.style.display = "block";
+            });
+        });
+    </script>
+</body>
+
+</html>
