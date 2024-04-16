@@ -19,32 +19,50 @@ var siteData = [
     },
     {
         'category_name': 'UI',
-        'site_link': '',
-        'site_image': 'UIverse.png',
-        'site_name': 'UIverse',
-    },
-    {
-        'category_name': 'UI',
-        'site_link': '',
+        'site_link': 'https://ui.shadcn.com/',
         'site_image': 'ShadcnUI.png',
         'site_name': 'Shadcn UI',
     },
     {
         'category_name': 'Tools',
-        'site_link': '',
-        'site_image': '',
-        'site_name': 'LightPDF',
-    },
-    {
-        'category_name': 'AI',
-        'site_link': '',
-        'site_image': '',
+        'site_link': 'https://tinywow.com/',
+        'site_image': 'TinyWow.png',
         'site_name': 'TinyWow',
     },
     {
+        'category_name': 'AI',
+        'site_link': 'https://quillbot.com/',
+        'site_image': 'quillbot.png',
+        'site_name': 'Quillbot',
+    },
+    {
         'category_name': 'Tools',
+        'site_link': 'https://www.ilovepdf.com/',
+        'site_image': 'ilovepdf.png',
+        'site_name': 'ilovepdf',
+    },,
+    {
+        'category_name': 'UI',
+        'site_link': 'https://uiverse.io/',
+        'site_image': 'UIverse.png',
+        'site_name': 'UIverse',
+    },
+    {
+        'category_name': 'Tools',
+        'site_link': 'https://keep.google.com/',
+        'site_image': 'keep.png',
+        'site_name': 'Keep Notes',
+    },
+    {
+        'category_name': '',
         'site_link': '',
         'site_image': '',
         'site_name': 'Fake Details',
+    },
+    {
+        'category_name': 'AI',
+        'site_link': 'https://www.perplexity.ai/',
+        'site_image': 'Perplexity.png',
+        'site_name': 'Perplexity',
     }
 ];

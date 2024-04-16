@@ -1,51 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Sitescape</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Sitescape</title>
+    </head>
 
-<body>
-    <div class="search-bar sticky">
-        <div class="search-bar-center">
-            <input type="text" id="myInput" onkeyup="myFunction()"
-                placeholder="Search for names.." title="Type in a name"
-                autocomplete="off">
-            <select name="categories" id="selectcategories"
-                class="input-style" onchange="filterSites()">
-                <option value="All Site">All Site</option>
-            </select>
+    <body>
+        <div class="search-bar sticky">
+            <div class="search-bar-center">
+                <input type="text" id="myInput" onkeyup="myFunction()"
+                    placeholder="Search for names.." title="Type in a name"
+                    autocomplete="off">
+                <select name="categories" id="selectcategories"
+                    class="input-style" onchange="filterSites()">
+                    <option value="All Site">All Site</option>
+                </select>
+            </div>
         </div>
-    </div>
 
-    <!-- Page content -->
-    <div class="content" id="myUL">
-    </div>
+        <!-- Page content -->
+        <div class="content" id="myUL">
+        </div>
 
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 
-    <script>
+        <script>
 
         // Populate site tabs
         for (var i in siteData) {
-            var row = '<div class="tab" data-cat="' + siteData[i].category_name + '">'
-                + '<div class="site" href="' + siteData[i].site_link + '">'
-                + '<img src="./images/' + siteData[i].site_image + '" alt="Site Icon" loading="lazy">'
-                + '<p class="skin">' + siteData[i].site_name + '</p>'
-                + '</div>'
-                + '</div>';
+            if (siteData[i].category_name && siteData[i].category_name.trim() !== '') {
+                var row = '<div class="tab" data-cat="' + siteData[i].category_name + '">'
+                    + '<div class="site" href="' + siteData[i].site_link + '">'
+                    + '<img src="./images/' + siteData[i].site_image + '" alt="Site Icon" loading="lazy">'
+                    + '<p class="skin">' + siteData[i].site_name + '</p>'
+                    + '</div>'
+                    + '</div>';
 
-            var content = document.getElementById('myUL');
-            content.insertAdjacentHTML('beforeend', row);
+                var content = document.getElementById('myUL');
+                content.insertAdjacentHTML('beforeend', row);
+            }
         }
 
         // Populate category dropdown
         var categories = [];
         for (var i in siteData) {
-            if (!categories.includes(siteData[i].category_name)) {
+            if (siteData[i].category_name && siteData[i].category_name.trim() !== '' && !categories.includes(siteData[i].category_name)) {
                 categories.push(siteData[i].category_name);
                 var row = '<option value="' + siteData[i].category_name + '">' + siteData[i].category_name + '</option>';
                 var content = document.getElementById('selectcategories');
@@ -100,6 +102,6 @@
             });
         });
     </script>
-</body>
+    </body>
 
 </html>
