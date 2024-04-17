@@ -40,7 +40,7 @@ var siteData = [
         'site_link': 'https://www.ilovepdf.com/',
         'site_image': 'ilovepdf.png',
         'site_name': 'ilovepdf',
-    },,
+    },
     {
         'category_name': 'UI',
         'site_link': 'https://uiverse.io/',
@@ -54,15 +54,54 @@ var siteData = [
         'site_name': 'Keep Notes',
     },
     {
-        'category_name': '',
-        'site_link': '',
-        'site_image': '',
-        'site_name': 'Fake Details',
-    },
-    {
         'category_name': 'AI',
         'site_link': 'https://www.perplexity.ai/',
         'site_image': 'Perplexity.png',
         'site_name': 'Perplexity',
+    },
+    {
+        'category_name': 'Icons',
+        'site_link': 'https://www.flaticon.com/',
+        'site_image': 'flaticon.png',
+        'site_name': 'Flaticon',
+    } ,
+    {
+        'category_name': 'Icons',
+        'site_link': 'https://www.untitledui.com/free-icons',
+        'site_image': 'UntitledUI.png',
+        'site_name': 'Untitled UI',
+    },
+    {
+        'category_name': 'Icons',
+        'site_link': 'https://www.remove.bg/upload',
+        'site_image': 'removebg.png',
+        'site_name': 'Removed BG',
+    },
+    {
+        'category_name': 'Icons',
+        'site_link': 'https://css.gg/app',
+        'site_image': 'cssgg.png',
+        'site_name': 'CSS Icons',
+    },
+    {
+        'category_name': 'Icons',
+        'site_link': 'https://basicons.xyz/',
+        'site_image': 'Basicicons.png',
+        'site_name': 'Basic icons',
+    },
+    {
+        'category_name': 'Icons',
+        'site_link': 'https://heroicons.com/',
+        'site_image': 'heroicons.png',
+        'site_name': 'hero icons',
+    },
+    {
+        'category_name': 'Tools',
+        'site_link': 'https://haveibeenpwned.com/',
+        'site_image': 'haveibeenpwned.png',
+        'site_name': '\';--have i been pwned?',
     }
 ];
+
+
+

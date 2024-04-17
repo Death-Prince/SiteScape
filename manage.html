@@ -184,6 +184,12 @@
 
         uploadbtn.onclick = function () {
             uploadModal.style.display = "block";
+            document.querySelector('input[name="site_name"]').value = "";
+                document.querySelector('input[name="site_link"]').value = "";
+                document.querySelector('input[name="site_cat"]').value = "";
+                document.querySelector("#blah").src = "";
+                svg.style.display = "block";
+                blah.style.display = "none";
         };
 
         uploadSpan.onclick = function () {
