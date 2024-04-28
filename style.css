@@ -114,6 +114,7 @@ body.modal-open {
   height: 70px;
   object-fit: contain;
   margin-bottom: 10px;
+  user-select: none;
 }
 
 .site p {

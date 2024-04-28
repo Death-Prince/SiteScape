@@ -1,40 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Sitescape</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Sitescape</title>
+</head>
 
-    <body>
-        <div class="search-bar sticky">
-            <div class="search-bar-center">
-                <input type="text" id="myInput" onkeyup="myFunction()"
-                    placeholder="Search for names.." title="Type in a name"
-                    autocomplete="off">
-                <select name="categories" id="selectcategories"
-                    class="input-style" onchange="filterSites()">
-                    <option value="All Site">All Site</option>
-                </select>
-            </div>
+<body>
+    <div class="search-bar sticky">
+        <div class="search-bar-center">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."
+                title="Type in a name" autocomplete="off">
+            <select name="categories" id="selectcategories" class="input-style" onchange="filterSites()">
+                <option value="All Site">All Site</option>
+            </select>
         </div>
+    </div>
 
-        <!-- Page content -->
-        <div class="content" id="myUL">
-        </div>
+    <!-- Page content -->
+    <div class="content" id="myUL">
+    </div>
 
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 
-        <script>
+    <script>
+
+        // Sort siteData alphabetically based on site_name
+        siteData.sort(function (a, b) {
+            var nameA = a.site_name.toUpperCase(); // ignore upper and lowercase
+            var nameB = b.site_name.toUpperCase(); // ignore upper and lowercase
+            if (nameA < nameB) {
+                return -1;
+            }
+            if (nameA > nameB) {
+                return 1;
+            }
+            // names must be equal
+            return 0;
+        });
 
         // Populate site tabs
         for (var i in siteData) {
             if (siteData[i].category_name && siteData[i].category_name.trim() !== '') {
                 var row = '<div class="tab" data-cat="' + siteData[i].category_name + '">'
                     + '<div class="site" href="' + siteData[i].site_link + '">'
-                    + '<img src="./images/' + siteData[i].site_image + '" alt="Site Icon" loading="lazy">'
+                    + '<img draggable="false" src="./images/' + siteData[i].site_image + '" alt="Site Icon" loading="lazy">'
                     + '<p class="skin">' + siteData[i].site_name + '</p>'
                     + '</div>'
                     + '</div>';
@@ -89,8 +101,8 @@
 
         // Add click event listener to each .site element
         var siteElements = document.querySelectorAll('.site');
-        siteElements.forEach(function(site) {
-            site.addEventListener('click', function(event) {
+        siteElements.forEach(function (site) {
+            site.addEventListener('click', function (event) {
                 // Prevent the default action of the click event
                 event.preventDefault();
                 // Get the href attribute of the clicked site
@@ -102,6 +114,6 @@
             });
         });
     </script>
-    </body>
+</body>
 
 </html>
