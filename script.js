@@ -106,5 +106,11 @@ var siteData = [
         'site_link': 'https://resumedone.co/',
         'site_image': 'resumedone.png',
         'site_name': 'Resumedone',
+    },
+    {
+        'category_name': 'Tools',
+        'site_link': 'https://lightpdf.com/chatdoc/chat',
+        'site_image': 'lightpdf.png',
+        'site_name': 'lightpdf',
     }
 ];
