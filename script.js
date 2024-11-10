@@ -113,16 +113,40 @@ var siteData = [
         'site_image': 'lightpdf.png',
         'site_name': 'lightpdf',
     },
-    {
-        'category_name': 'UI',
-        'site_link': 'https://www.inspectresource.com/',
-        'site_image': 'inspectresource.png',
-        'site_name': 'inspectresource',
-    },
+    // {
+    //     'category_name': 'UI',
+    //     'site_link': 'https://www.inspectresource.com/',
+    //     'site_image': 'inspectresource.png',
+    //     'site_name': 'inspectresource',
+    // },
     {
         'category_name': 'UI',
         'site_link': 'https://www.radix-ui.com/',
         'site_image': 'Radix UI.png',
         'site_name': 'Radix UI',
+    },
+    {
+        'category_name': 'AI',
+        'site_link': 'https://www.fluxpro.ai/dashboard',
+        'site_image': 'Flux.png',
+        'site_name': 'Flux Pro AI',
+    },
+    {
+        'category_name': 'AI',
+        'site_link': 'https://gamma.app',
+        'site_image': 'gamma.png',
+        'site_name': 'Gamma',
+    },
+    {
+        'category_name': 'UI',
+        'site_link': 'https://uiball.com',
+        'site_image': 'uiball.png',
+        'site_name': 'UI Ball',
+    },
+    {
+        'category_name': 'Tools',
+        'site_link': 'https://cloudconvert.com',
+        'site_image': 'cloudconvert.png',
+        'site_name': 'Cloudconvert',
     }
 ];
