@@ -112,5 +112,17 @@ var siteData = [
         'site_link': 'https://lightpdf.com/chatdoc/chat',
         'site_image': 'lightpdf.png',
         'site_name': 'lightpdf',
+    },
+    {
+        'category_name': 'UI',
+        'site_link': 'https://www.inspectresource.com/',
+        'site_image': 'inspectresource.png',
+        'site_name': 'inspectresource',
+    },
+    {
+        'category_name': 'UI',
+        'site_link': 'https://www.radix-ui.com/',
+        'site_image': 'Radix UI.png',
+        'site_name': 'Radix UI',
     }
 ];
