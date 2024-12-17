@@ -28,17 +28,17 @@ sudo systemctl is-enabled nginx
 
  TASK B
 
-systemctl list-units --type=service --all
+sudo systemctl list-units --type=service --all
 
-systemctl list-unit-files
+sudo systemctl list-unit-files
 
-systemctl list-unit-files --type=service | grep enabled
+sudo systemctl list-unit-files --type=service 
 
-systemctl list-unit-files --type=service | grep static
+sudo systemctl list-unit-files --type=service
 
-systemctl list-unit-files --type=service | grep disabled
+sudo systemctl list-unit-files --type=service
 
-systemctl list-units --type=service --state=active
+sudo systemctl list-units --type=service --state=active
 
 `}
 ];
