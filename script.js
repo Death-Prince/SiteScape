@@ -148,5 +148,11 @@ var siteData = [
         'site_link': 'https://cloudconvert.com',
         'site_image': 'cloudconvert.png',
         'site_name': 'Cloudconvert',
+    },
+    {
+        'category_name': 'Tools',
+        'site_link': 'https://app.kittl.com/',
+        'site_image': 'kittl.png',
+        'site_name': 'kittl',
     }
 ];
