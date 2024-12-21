@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Container</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Container styling */
+        .container {
+            /* border: 1px solid #ccc; */
+            /* padding: 10px; */
+            margin: 20px auto;
+            /* width: 300px; */
+            position: relative;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* background-color: #f9f9f9; */
+            display: flex;
+        }
+
+        /* Textarea styling */
+        #textToCopy {
+            width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 8px;
+            font-size: 14px;
+            background-color: #0d0d0d;
+            color: #f3f3f3;
+            resize: none; /* Prevent manual resizing */
+            overflow: hidden; /* Hide overflow scrollbar */
+        }
+
+
+        /* Button styling */
+        .copy-btn, .paste-btn {
+            margin-top: 10px;
+            padding: 8px 12px;
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+        }
+
+        .paste-btn {
+            background-color: #007bff;
+        }
+
+        .copy-btn:hover, .paste-btn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <textarea id="textToCopy" placeholder="Type or paste text here..." readonly></textarea>
+        <br>
+       
+        <!-- <button class="paste-btn" onclick="pasteText()">Paste</button> -->
+    </div>
+    <button class="copy-btn" onclick="copyText()">Copy</button>
+
+    <script src="exam.js"></script>
+    <script>
+        // Function to copy text
+        function copyText() {
+            const textArea = document.getElementById("textToCopy");
+            textArea.select();
+            document.execCommand("copy");
+            alert("Text copied to clipboard!");
+        }
+
+        // Function to paste text
+        function pasteText() {
+            navigator.clipboard.readText()
+                .then(text => {
+                    document.getElementById("textToCopy").value = text;
+                })
+                .catch(err => {
+                    alert("Failed to paste: " + err);
+                });
+        }
+
+         // Load content from textarea.js
+         document.addEventListener("DOMContentLoaded", function() {
+            const textArea = document.getElementById("textToCopy");
+
+            // Load the content from siteData
+            textArea.value = siteData[0].content;
+
+            // Adjust textarea height
+            autoAdjustHeight(textArea);
+        });
+
+        function autoAdjustHeight(textArea) {
+            textArea.style.height = "auto"; // Reset height
+            textArea.style.height = textArea.scrollHeight + "px"; // Adjust to content height
+        }
+    </script>
+</body>
+</html>
