@@ -32,9 +32,13 @@
                 const textarea = document.createElement("textarea");
                 textarea.id = `textarea-${index}`;
                 textarea.classList.add("textToCopy");
-                textarea.value = item.content.trim();
-                textarea.value = textarea.value.trim() === "" ? " " : textarea.value; // Add a single space if empty
     
+                // Set the value and ensure it is non-empty
+                textarea.value = item.content.trim();
+                textarea.value = textarea.value.trim() === "" ? " " : textarea.value;
+    
+                // Ensure newlines are preserved correctly
+                textarea.setAttribute("style", "white-space: pre-wrap; overflow-wrap: break-word;");
                 textContainer.appendChild(textarea);
     
                 if (!textarea.value.trim()) {  // If content is empty or only spaces
@@ -56,7 +60,7 @@
             textArea.style.height = "auto"; // Reset height
             textArea.style.height = textArea.scrollHeight + "px"; // Adjust to content height
         }
-    </script>
+    </script>    
     
 </body>
 
