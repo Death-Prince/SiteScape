@@ -38,7 +38,6 @@ sudo usermod -aG "WebDev Team" $(whoami)
 getent group "WebDev Team"
 
 
-
 `}
 ];
 
