@@ -10,12 +10,12 @@ sudo groupadd Finance
 sudo groupadd Manpower
 
 2. creating users
-sudo useradd -G Finance fin_user1
-sudo useradd -G Finance fin_user2
-sudo useradd -G Finance fin_user3
-sudo useradd -G Manpower man_user4
-sudo useradd -G Manpower man_user5
-sudo useradd -G Manpower man_user6
+sudo useradd fin_user1
+sudo useradd fin_user2
+sudo useradd fin_user3
+sudo useradd man_user4
+sudo useradd man_user5
+sudo useradd man_user6
 
 cat /etc/group
 
