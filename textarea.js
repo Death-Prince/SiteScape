@@ -20,9 +20,13 @@ sudo useradd man_user6
 cat /etc/group
 
 3.assigning users to group(s)
-gpasswd -A fin_user1 Finance
-gpasswd -A man_user4 Manpower
+sudo gpasswd -a fin_user1 Finance
+sudo gpasswd -a fin_user2 Finance
+sudo gpasswd -a fin_user3 Finance
 
+sudo gpasswd -a man_user4 Manpower
+sudo gpasswd -a man_user5 Manpower
+sudo gpasswd -a man_user6 Manpower
 
 4.setting a user as group administrator
 mkdir /home/fin_user1
