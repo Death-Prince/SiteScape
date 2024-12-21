@@ -14,7 +14,7 @@ sudo groupadd Manpower
     {
         title: `2. creating users`,
         content: `
-    sudo useradd -m fin_user1
+sudo useradd -m fin_user1
 sudo useradd -m fin_user2
 sudo useradd -m fin_user3
 sudo useradd -m man_user4
@@ -22,11 +22,13 @@ sudo useradd -m man_user5
 sudo useradd -m man_user6
 
 cat /etc/group
-    `},
+    `
+
+    },
     {
         title: `3. assigning users to group(s)`,
         content: `
-    sudo gpasswd -a fin_user1 Finance
+sudo gpasswd -a fin_user1 Finance
 sudo gpasswd -a fin_user2 Finance
 sudo gpasswd -a fin_user3 Finance
 
@@ -35,8 +37,8 @@ sudo gpasswd -a man_user5 Manpower
 sudo gpasswd -a man_user6 Manpower
 
 cat /etc/group
-
-    `},
+    `
+    },
     {
         title: `4. setting a user as group administrator`,
         content: `
