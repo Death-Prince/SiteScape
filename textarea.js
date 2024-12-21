@@ -10,12 +10,12 @@ sudo groupadd Finance
 sudo groupadd Manpower
 
 2. creating users
-sudo useradd -g Finance -G Finance fin_user1
-sudo useradd -g Finance -G Finance fin_user2
-sudo useradd -g Finance -G Finance fin_user3
-sudo useradd -g Manpower -G Manpower man_user4
-sudo useradd -g Manpower -G Manpower man_user5
-sudo useradd -g Manpower -G Manpower man_user6
+sudo useradd -G Finance fin_user1
+sudo useradd -G Finance fin_user2
+sudo useradd -G Finance fin_user3
+sudo useradd -G Manpower man_user4
+sudo useradd -G Manpower man_user5
+sudo useradd -G Manpower man_user6
 
 cat /etc/group
 
@@ -59,6 +59,19 @@ TESTING
 Verify Group Members:
 getent group Finance
 getent group Manpower
+
+
+removing if there is mistake made
+
+sudo userdel -r fin_user1
+sudo userdel -r fin_user2
+sudo userdel -r fin_user3
+sudo userdel -r man_user4
+sudo userdel -r man_user5
+sudo userdel -r man_user6
+
+sudo groupdel Finance
+sudo groupdel Manpower
 
 `}
 ];
