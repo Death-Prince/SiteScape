@@ -21,7 +21,6 @@ sudo useradd -m man_user4
 sudo useradd -m man_user5
 sudo useradd -m man_user6
 
-
 cat /etc/group
     `},
     {
