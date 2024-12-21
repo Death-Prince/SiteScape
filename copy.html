@@ -17,44 +17,47 @@
         document.addEventListener("DOMContentLoaded", function () {
             const container = document.getElementById("textareaContainer");
             container.innerHTML = ""; // Clear existing textareas
-
+    
             // Dynamically create textareas with titles
             siteData.forEach((item, index) => {
                 const textContainer = document.createElement("div");
                 textContainer.classList.add("textContainer");
-
+    
                 // Create and append the title
                 const title = document.createElement("h2");
                 title.textContent = item.title;
                 textContainer.appendChild(title);
-
+    
                 // Create and append the textarea
                 const textarea = document.createElement("textarea");
                 textarea.id = `textarea-${index}`;
                 textarea.classList.add("textToCopy");
                 textarea.value = item.content.trim();
+                textarea.value = textarea.value.trim() === "" ? " " : textarea.value; // Add a single space if empty
+    
                 textContainer.appendChild(textarea);
-
+    
                 if (!textarea.value.trim()) {  // If content is empty or only spaces
                     textarea.classList.add("hide"); // Add "hide" class to make it invisible
                 }
-
+    
                 // Append the text container to the main container
                 container.appendChild(textContainer);
-
+    
                 // Auto-adjust height for each textarea
                 autoAdjustHeight(textarea);
-
+    
                 // Add an event listener to adjust height on input
                 textarea.addEventListener("input", () => autoAdjustHeight(textarea));
             });
         });
-
+    
         function autoAdjustHeight(textArea) {
             textArea.style.height = "auto"; // Reset height
             textArea.style.height = textArea.scrollHeight + "px"; // Adjust to content height
         }
     </script>
+    
 </body>
 
 </html>

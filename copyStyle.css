@@ -30,6 +30,7 @@ h2 {
     color: #f3f3f3;
     resize: none;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .hide {
