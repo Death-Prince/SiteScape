@@ -28,6 +28,8 @@ sudo gpasswd -a man_user4 Manpower
 sudo gpasswd -a man_user5 Manpower
 sudo gpasswd -a man_user6 Manpower
 
+cat /etc/group
+
 4.setting a user as group administrator
 mkdir /home/fin_user1
 mkdir /home/fin_user1/innovation
