@@ -2,50 +2,27 @@
 var siteData = [
     {
         content: `
-sudo apt install nginx.service
+ENTERING TO ROOT FOLDER
+sudo su
 
-sudo systemctl status nginx.service
+1. creating users
+sudo useradd -G Finance fin_user1
+sudo useradd -G Finance fin_user2
+sudo useradd -G Finance fin_user3
+sudo useradd -G Manpower man_user4
+sudo useradd -G Manpower man_user5
+sudo useradd -G Manpower man_user6
 
-sudo systemctl start nginx.service
-sudo systemctl status nginx.service
+2.creating groups
+sudo groupadd Finance
+sudo groupadd Manpower
 
-sudo systemctl stop nginx.service
-sudo systemctl status nginx.service
+3.assigning users to group(s)
 
-sudo systemctl restart nginx.service
-sudo systemctl status nginx.service
 
-sudo systemctl reload nginx.service
-sudo systemctl status nginx.service
-
-sudo systemctl enable nginx.service
-sudo systemctl status nginx.service
-
-sudo systemctl disable nginx.service
-
-sudo systemctl list-dependencies nginx
-
-sudo systemctl is-active nginx.service
-
-sudo systemctl is-failed nginx.service
-
-sudo systemctl is-enabled nginx.service
-
- TASK B
-
-sudo systemctl list-units --type=service --all
-
-sudo systemctl list-unit-files
-
-sudo systemctl list-unit-files --type=service | grep enabled
-
-sudo systemctl list-unit-files --type=service | grep static
-
-sudo systemctl list-unit-files --type=service | grep disabled
-
-sudo systemctl list-units --type=service --state=active
-
-https://computingforgeeks.com/install-and-configure-zabbix-lts-on-ubuntu/
+4.setting a user as group administrator
+5.setting file and directory ownership
+6.setting file and directory modes
 
 `}
 ];
