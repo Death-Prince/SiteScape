@@ -112,6 +112,16 @@ sudo chgrp WebDev_Team ~/share_JLPN/Email_to_JohnLlenardNagal.txt
 sudo systemctl restart nfs-kernel-server
     `},
     {
+        title: `Verify the Exports:`,
+        content: `
+    sudo exportfs -v
+    `},
+    {
+        title: `Output:`,
+        content: `
+    /home/llenard/share_JLPN  192.168.3.0/24(rw,sync,no_root_squash,no_subtree_check)
+    `},
+    {
         title: `- CLEINT`,
         content: `
     sudo apt update
@@ -126,32 +136,42 @@ mkdir ~/clientresource_holder
     {
         title: `2. Mount the NFS server's exported directory to the directory you've just created in Step 3.`,
         content: `
-sudo mount 192.168.3.10:~/share_JLPN ~/clientresource_holder
+sudo mount 192.168.3.10:/home/llenard/share_JLPN ~/clientresource_holder
+        `
+    },
+    {
+        title: `Verify the mount by listing the contents of the mounted directory:`,
+        content: `
+ls ~/clientresource_holder
         `
     },
     {
         title: `3. Switch account to the user who is a member of the group WebDev Team.`,
         content: `
-su - llenard
+su devuser
         `
     },
     {
         title: `4. Edit the file inside the clientresource_holder by typing "NFS is fun!". The system should not allow it due to read-only mode for the group.`,
         content: `
-nano ~/clientresource_holder/Email_to_JohnLlenardNagal.txt
+cd ~/clientresource_holder
+nano Email_to_JohnLlenardNagal.txt
         `
     },
     {
         title: `5. Now, switch to the file's owner edit the file by typing "NFS is fun!". The system should allow it due to full-access mode for the file's owner.`,
         content: `
-su - llenard
-nano ~/clientresource_holder/Email_to_JohnLlenardNagal.txt
+exit
+su llenard
+
+cd ~/clientresource_holder
+nano Email_to_JohnLlenardNagal.txt
         `
     },
     {
         title: `6. Use the command cat "filename" to view the content of the file.`,
         content: `
-cat ~/clientresource_holder/Email_to_JohnLlenardNagal.txt
+cat Email_to_JohnLlenardNagal.txt
         `
     }
 ];
