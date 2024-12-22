@@ -24,7 +24,6 @@ ping 192.168.3.11
         title: `Task 2: Group/User Creation (Manual UID/GID Alignment)`,
         content: `
 - SERVER
-sudo su
 sudo groupadd --gid 1001 WebDev_Team
 sudo useradd --uid 1500 -m devuser
 
@@ -34,7 +33,6 @@ sudo usermod -aG WebDev_Team devuser
 getent group WebDev_Team
 
 - CLEINT
-sudo su
 sudo groupadd --gid 1001 WebDev_Team
 sudo useradd --uid 1500 -m devuser
 
@@ -148,13 +146,13 @@ ls ~/clientresource_holder
     {
         title: `3. Switch account to the user who is a member of the group WebDev Team.`,
         content: `
-su devuser
+sudo su devuser
         `
     },
     {
         title: `4. Edit the file inside the clientresource_holder by typing "NFS is fun!". The system should not allow it due to read-only mode for the group.`,
         content: `
-cd ~/clientresource_holder
+cd /home/llenard/clientresource_holder
 nano Email_to_JohnLlenardNagal.txt
         `
     },
