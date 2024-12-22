@@ -87,12 +87,12 @@ sudo chgrp WebDev_Team ~/share_JLPN/Email_to_JohnLlenardNagal.txt
     {
         title: `5. Using chown command, change the ownership of the file inside the directory "share_<your initial>" to your default account (regular user)`,
         content: `
-    sudo chown llenard:WebDev_Team ~/share_JLPN/Email_to_JohnLlenardNagal.txt
+    sudo chown llenard ~/share_JLPN/Email_to_JohnLlenardNagal.txt
     `},
     {
         title: `6. Set a read, write, & execute (full access) privilege on the shared directory to all users.`,
         content: `
-    sudo chmod -R 770 ~/share_JLPN 
+    sudo chmod 777 ~/share_JLPN
     `},
     {
         title: `7. Change the attribute (permission) of the file inside the shared directory named "share_<your initial>" so the owner of the file has full access, the group has read only access, while others have no access to the file. Use the Numeric (binary) mode in changing the file's attribute.`,
@@ -102,7 +102,8 @@ sudo chgrp WebDev_Team ~/share_JLPN/Email_to_JohnLlenardNagal.txt
     {
         title: `8. Export the shared directory by editing /etc/exports:`,
         content: `
-   /home/llenard/share_JLPN 192.168.3.1/24(rw,sync,no_subtree_check)
+        sudo nano /etc/exports
+   /home/llenard/share_JLPN 192.168.3.0/24(rw,sync,no_root_squash,no_subtree_check)
     `},
     {
         title: `9. Apply the export configuration:`,
