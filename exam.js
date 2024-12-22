@@ -102,7 +102,7 @@ sudo chgrp WebDev_Team ~/share_JLPN/Email_to_JohnLlenardNagal.txt
     {
         title: `8. Export the shared directory by editing /etc/exports:`,
         content: `
-   /home/username/share_JLPN 192.168.3.1/24(rw,sync,no_subtree_check)
+   /home/llenard/share_JLPN 192.168.3.1/24(rw,sync,no_subtree_check)
     `},
     {
         title: `9. Apply the export configuration:`,
