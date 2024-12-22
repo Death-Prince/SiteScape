@@ -160,7 +160,7 @@ nano Email_to_JohnLlenardNagal.txt
         title: `5. Now, switch to the file's owner edit the file by typing "NFS is fun!". The system should allow it due to full-access mode for the file's owner.`,
         content: `
 exit
-su llenard
+sudo su llenard
 
 cd ~/clientresource_holder
 nano Email_to_JohnLlenardNagal.txt
