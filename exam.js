@@ -26,7 +26,7 @@ ping 192.168.3.11
 - SERVER
 sudo su
 sudo groupadd --gid 1001 WebDev_Team
-sudo useradd --uid 1500 --gid 1001 --create-home llenard 
+sudo useradd --uid 1500 -m devuser
 
 sudo usermod -aG WebDev_Team $(whoami)
 sudo usermod -aG WebDev_Team devuser
